@@ -12,7 +12,7 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
 
-            MulMethod();
+            UpAndDownCast();
             //Console.WriteLine("Hello World!");
             Console.ReadKey();
         }
@@ -21,7 +21,7 @@ namespace ConsoleApp1
         #region 多态
         public static void MulMethod()
         {
-            Stock stock = new Stock { Name="Stock.Name"};
+            Stock stock = new Stock { Name = "Stock.Name" };
             House house = new House { Name = "House.Name" };
             Assets asset = new Assets { Name = "Assets.Name" };
 
@@ -34,6 +34,36 @@ namespace ConsoleApp1
         {
             Console.WriteLine(asset.Name);
         }
+
+        /// <summary>
+        /// 向上向下转换
+        /// 向下引用：基类创建一个子类引用
+        /// </summary>
+        public static void UpAndDownCast()
+        {
+            //Stock stock = new Stock { Name= "Stock.Name" };
+            //Assets assets = stock;//子类转换成基类，向上转换
+            //House house = (House)assets;//基类转换成子类，向下转换
+
+            //Console.WriteLine(stock.Name);
+            //Console.WriteLine(assets.Name);
+            //Console.WriteLine(house.Name);
+
+
+            //as  
+            //向下转换时为null
+            
+            Stock stock2 = new Stock();
+            Assets assets2 = stock2;
+            Assets assets4 = new Assets();
+            Stock stock3 = assets4 as Stock;
+            if (stock3 == null)
+            {
+
+            }
+
+        }
+
         #endregion
 
 
